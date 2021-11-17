@@ -35,8 +35,8 @@ S_2[[i]] <- sample(KC$Body_mass_female_mean, size = 100, replace=TRUE)}
 ```{r}
 mm <- NULL
 for (i in 1:1000) {
-  mm[[i]] <- lmodel2(s1[[i]]~s2[[i]],data = KC, range.y = "Interval", range.x = "relative")
-beta1[i] <-mm[[i]]$regression.results$Slope[1]
+  mm[[i]] <- lmodel2(S_1[[i]]~S_2[[i]],data = KC, range.y = "Interval", range.x = "relative")
+beta1[i] <-mm[[i]]$regression.results$slope[1]
 beta0[i] <-mm[[i]]$regression.results$Intercept[1]
 }
 ```
