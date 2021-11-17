@@ -16,17 +16,28 @@ summary(KC)
 ````
 ```{r}
 Home_Range <- log(d$HomeRange_km2)
-Brain_Size_Female_Mean <- log(d$Brain_Size_Female_Mean)
+Body_Mass_Female_Mean <- log(d$Body_mass_female_mean)
 ```
 ```{r}
-c <- cbind(d, Home_Range, Brain_Size_Female_Mean)
-
-
-l <- lmodel2(Home_Range~Brain_Size_Female_Mean, data= c  , range.y ="Interval" , range.x="Relative"  , nperm=0)
-
+cbind <- cbind(d, Home_Range, Body_Mass_Female_Mean)
+l <- lmodel2(Home_Range~Body_Mass_Female_Mean, data= cbind  , range.y ="Interval" , range.x="Relative"  , nperm=0)
 mx <- l$regression.results$slope
-
-
 b <-l$regression.results$Intercept
+```
+
+```{r}
+S_1 <- NULL
+S_2 <- NULL
+for (i in 1:1000) { S_1[[i]] <- sample(KC$HomeRange_km2,size =100, replace=TRUE) 
+S_2[[i]] <- sample(KC$Body_mass_female_mean, size = 100, replace=TRUE)}
+
+```
+```{r}
+mm <- NULL
+for (i in 1:1000) {
+  mm[[i]] <- lmodel2(s1[[i]]~s2[[i]],data = KC, range.y = "Interval", range.x = "relative")
+beta1[i] <-mm[[i]]$regression.results$Slope[1]
+beta0[i] <-mm[[i]]$regression.results$Intercept[1]
+}
 ```
 
