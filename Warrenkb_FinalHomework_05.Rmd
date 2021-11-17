@@ -1,0 +1,32 @@
+---
+title: "Warrenkb_FinalHomeworkCode_05"
+author: "Warrenkevin Henderson"
+date: "11/17/2021"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(lmodel2)
+KC <- read.csv("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/KamilarAndCooperData.csv")
+head(KC)
+summary(KC)
+````
+```{r}
+Home_Range <- log(d$HomeRange_km2)
+Brain_Size_Female_Mean <- log(d$Brain_Size_Female_Mean)
+```
+```{r}
+c <- cbind(d, Home_Range, Brain_Size_Female_Mean)
+
+
+l <- lmodel2(Home_Range~Brain_Size_Female_Mean, data= c  , range.y ="Interval" , range.x="Relative"  , nperm=0)
+
+mx <- l$regression.results$slope
+
+
+b <-l$regression.results$Intercept
+```
+
