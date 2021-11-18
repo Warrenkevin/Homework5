@@ -1,6 +1,10 @@
 ---
 title: "Warrenkb_FinalHomeworkCode_05"
+<<<<<<< HEAD
 author: "Warrenkevin Henderson."
+=======
+author: "Warrenkevin Henderson"
+>>>>>>> 4211119b01b055a7e619d49c285c0e7d4d5d0e9d
 date: "11/18/2021"
 output: html_document
 ---
