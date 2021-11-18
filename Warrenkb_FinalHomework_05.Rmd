@@ -15,11 +15,11 @@ head(KC)
 summary(KC)
 ````
 ```{r}
-Home_Range <- log(d$HomeRange_km2)
-Body_Mass_Female_Mean <- log(d$Body_mass_female_mean)
+Home_Range <- log(KC$HomeRange_km2)
+Body_Mass_Female_Mean <- log(KC$Body_mass_female_mean)
 ```
 ```{r}
-cbind <- cbind(d, Home_Range, Body_Mass_Female_Mean)
+cbind <- cbind(KC, Home_Range, Body_Mass_Female_Mean)
 l <- lmodel2(Home_Range~Body_Mass_Female_Mean, data= cbind  , range.y ="Interval" , range.x="Relative"  , nperm=0)
 mx <- l$regression.results$slope
 b <-l$regression.results$Intercept
@@ -53,6 +53,10 @@ CI <- confint(A, level = 0.95)
 df <- data.frame(Bootstrapping_SE = c(sd0, sd1), Bootstrapping_95 = c(quantile(b, 0.95),quantile(mx, 0.95)))
 table <- cbind(B[,1:2],df,CI)
 table
+
+
 ```
+#### Questions 1: Not quite sure i understand this question
+#### Question 2: It aligns with the intercept
 
 
