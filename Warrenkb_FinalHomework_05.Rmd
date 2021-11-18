@@ -1,6 +1,6 @@
 ---
 title: "Warrenkb_FinalHomeworkCode_05"
-author: "Warrenkevin Henderson"
+author: "Warrenkevin Henderson."
 date: "11/18/2021"
 output: html_document
 ---
