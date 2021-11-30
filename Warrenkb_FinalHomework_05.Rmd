@@ -61,6 +61,7 @@ table
 
 ```
 #### Questions 1: Not quite sure i understand this question
+*its just asking you to look at the parameters of one regression run*
 #### Question 2: It aligns with the intercept
 
-
+*good work*
